@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_shop_app2/screens/product_screen.dart';
 
 class BankingDetailsScreen extends StatefulWidget {
   const BankingDetailsScreen({super.key});
@@ -109,14 +110,18 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
 
                     // Process the banking details
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Banking details saved!')),
+                      const SnackBar(content: Text('Order submitted!')),
                     );
 
-                    Navigator.pop(context); // go back to the previous screen
+                    Navigator.pop(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const ProductScreen())); // go back to the previous screen
                   }
                 },
                 child: const Text(
-                  'Submit',
+                  'Submit Order',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
