@@ -18,9 +18,11 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Banking Details'),
+        title: const Text('Banking Details',
+            style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.black,
       ),
+      backgroundColor: const Color(0xFFCBD7D1),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -29,8 +31,10 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
             children: [
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Bank Name',
-                ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Bank Name',
+                    border: OutlineInputBorder()),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your bank name';
@@ -41,9 +45,13 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                   bankName = value!;
                 },
               ),
+              const SizedBox(height: 10.0),
               TextFormField(
                 decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
                   labelText: 'Account Number',
+                  border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -56,10 +64,13 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                   accountNumber = value!;
                 },
               ),
+              const SizedBox(height: 10.0),
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Branch Code',
-                ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Branch Code',
+                    border: OutlineInputBorder()),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -71,10 +82,13 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                   branchCode = value!;
                 },
               ),
+              const SizedBox(height: 10.0),
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Account Holder Name',
-                ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: 'Account Holder Name',
+                    border: OutlineInputBorder()),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the account holder name';
@@ -87,12 +101,13 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Save form data
                     _formKey.currentState!.save();
 
-                    // Process the banking details (e.g., send to backend, save locally)
+                    // Process the banking details
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Banking details saved!')),
                     );
@@ -100,7 +115,10 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                     Navigator.pop(context); // go back to the previous screen
                   }
                 },
-                child: const Text('Submit'),
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
