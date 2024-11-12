@@ -113,11 +113,11 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                       const SnackBar(content: Text('Order submitted!')),
                     );
 
-                    Navigator.pop(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const ProductScreen())); // go back to the previous screen
+                                const ProductScreen())); // go back to the product screen
                   }
                 },
                 child: const Text(
