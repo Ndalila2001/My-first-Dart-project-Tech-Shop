@@ -97,9 +97,7 @@ class _BankingDetailsScreenState extends State<BankingDetailsScreen> {
                       const SnackBar(content: Text('Banking details saved!')),
                     );
 
-                    // You can navigate back or proceed to another screen if needed
-                    Navigator.pop(
-                        context); // This will go back to the previous screen
+                    Navigator.pop(context); // go back to the previous screen
                   }
                 },
                 child: const Text('Submit'),
